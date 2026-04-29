@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Osama Ahmed — Influencer & Social Marketing</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0d1b2a;
+  --navy2: #132436;
+  --gold: #e8b84b;
+  --gold2: #f5d485;
+  --cream: #fdf9f3;
+  --white: #ffffff;
+  --mid: #64748b;
+  --light: #e8edf2;
+  --red: #dc2626;
+  --border: #e2e8f0;
+  --text: #1e293b;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'DM Sans', sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.6;
+  font-size:15px;
+}
+::-webkit-scrollbar { width:3px; }
+::-webkit-scrollbar-thumb { background:var(--gold); }
+
+/* NAV */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  background:rgba(13,27,42,0.97); backdrop-filter:blur(20px);
+  padding:14px 52px; display:flex; justify-content:space-between; align-items:center;
+  border-bottom:1px solid rgba(232,184,75,0.1);
+}
+.nav-name { font-weight:700; font-size:16px; color:var(--white); letter-spacing:-0.2px; }
+.nav-name span { color:var(--gold); }
+.nav-links { display:flex; gap:28px; list-style:none; }
+.nav-links a { font-size:11px; color:rgba(255,255,255,0.4); text-decoration:none; letter-spacing:2px; text-transform:uppercase; transition:color 0.2s; font-weight:500; }
+.nav-links a:hover { color:var(--gold); }
+
+/* HERO */
+.hero {
+  min-height:100vh; background:var(--navy);
+  display:flex; justify-content:space-between; align-items:center;
+  gap:48px; padding:88px 64px 72px;
+  position:relative; overflow:hidden;
+}
+.hero-left { flex:1; max-width:560px; }
+.hero::before {
+  content:''; position:absolute;
+  top:50%; right:200px; transform:translateY(-50%);
+  width:500px; height:500px; border-radius:50%;
+  background:radial-gradient(circle, rgba(232,184,75,0.06) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(232,184,75,0.1); border:1px solid rgba(232,184,75,0.2);
+  padding:6px 14px; border-radius:100px; margin-bottom:20px;
+}
+.badge-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); animation:pulse 2s infinite; flex-shrink:0; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.badge-text { font-size:11px; color:var(--gold); letter-spacing:2px; text-transform:uppercase; font-weight:600; }
+h1.hero-title {
+  font-size:clamp(36px,4.5vw,62px); font-weight:700;
+  color:var(--white); line-height:1.1; letter-spacing:-0.5px; margin-bottom:4px;
+}
+h1.hero-title span { color:var(--gold); }
+.hero-role { font-size:17px; color:rgba(255,255,255,0.45); margin-bottom:20px; font-weight:400; }
+.hero-desc { font-size:17px; color:rgba(255,255,255,0.65); line-height:1.85; margin-bottom:36px; }
+.hero-stats {
+  display:flex; gap:0; border:1px solid rgba(255,255,255,0.07);
+  border-radius:12px; overflow:hidden; max-width:100%;
+}
+.stat { flex:1; padding:16px 12px; text-align:center; border-right:1px solid rgba(255,255,255,0.07); }
+.stat:last-child { border-right:none; }
+.stat:hover { background:rgba(232,184,75,0.05); }
+.stat-num { font-size:22px; font-weight:700; color:var(--gold); display:block; line-height:1.2; }
+.stat-label { font-size:10px; color:rgba(255,255,255,0.28); text-transform:uppercase; letter-spacing:1.5px; margin-top:3px; display:block; }
+
+/* HERO PHOTO */
+.hero-photo {
+  width:280px; height:360px; border-radius:18px; overflow:hidden;
+  box-shadow:0 24px 56px rgba(0,0,0,0.45), 0 0 0 1px rgba(232,184,75,0.12);
+  position:relative;
+}
+.hero-photo img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
+.hero-photo-tag {
+  position:absolute; bottom:-12px; left:50%; transform:translateX(-50%);
+  background:var(--gold); color:var(--navy);
+  padding:7px 18px; border-radius:100px; font-size:11px; font-weight:700;
+  white-space:nowrap; box-shadow:0 4px 16px rgba(232,184,75,0.3);
+}
+
+/* SECTION BASE */
+section { padding:72px 64px; }
+.eyebrow {
+  display:flex; align-items:center; gap:10px;
+  font-size:11px; letter-spacing:3px; text-transform:uppercase;
+  color:var(--gold); font-weight:600; margin-bottom:12px;
+}
+.eyebrow::before { content:''; width:20px; height:2px; background:var(--gold); flex-shrink:0; }
+h2.section-title {
+  font-size:clamp(28px,3.5vw,44px); font-weight:700;
+  line-height:1.1; letter-spacing:-0.4px; margin-bottom:48px;
+}
+
+/* ABOUT */
+.about { background:var(--white); }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; }
+.about-text { font-size:16px; line-height:1.9; color:#475569; }
+.skills-list { display:flex; flex-direction:column; gap:6px; }
+.about-text p+p { margin-top:14px; }
+.about-text strong { color:var(--navy); font-weight:600; }
+.skills-list { display:flex; flex-direction:column; gap:6px; }
+.skill-item {
+  display:flex; align-items:center; gap:12px;
+  padding:9px 14px; border:1.5px solid var(--border);
+  border-radius:10px; font-size:13px; font-weight:500; color:var(--navy);
+  transition:all 0.2s; background:var(--white);
+}
+.skill-item:hover {
+  border-color:var(--gold); background:rgba(232,184,75,0.04);
+  transform:translateX(4px);
+}
+.sk-icon { font-size:18px; width:24px; text-align:center; flex-shrink:0; }
+
+/* CAMPAIGN SECTION */
+.campaign-sec { background:var(--cream); }
+
+/* SELECT INTRO */
+.select-intro {
+  display:flex; flex-direction:column; gap:32px;
+  margin-bottom:48px;
+}
+.select-intro-left {}
+.camp-tag {
+  display:inline-flex; align-items:center; gap:6px;
+  background:rgba(232,184,75,0.12); border:1px solid rgba(232,184,75,0.25);
+  padding:5px 13px; border-radius:100px; width:fit-content;
+  font-size:11px; color:var(--gold); letter-spacing:1.5px; text-transform:uppercase;
+  font-weight:600; margin-bottom:16px;
+}
+h3.camp-title {
+  font-size:clamp(32px,3.5vw,48px); font-weight:700;
+  line-height:1.05; letter-spacing:-0.5px; margin-bottom:10px; color:var(--navy);
+}
+h3.camp-title span { color:var(--gold); }
+.camp-tagline { font-size:13px; color:var(--mid); font-style:italic; margin-bottom:20px; }
+.camp-pills { display:flex; gap:7px; flex-wrap:wrap; margin-bottom:20px; }
+.pill {
+  padding:4px 12px; border-radius:100px; font-size:11px; font-weight:600;
+}
+.pill-gold { background:var(--gold); color:var(--navy); }
+.pill-outline { border:1px solid var(--border); color:var(--mid); }
+.camp-desc { font-size:14px; color:#475569; line-height:1.8; }
+
+.select-intro-right {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:14px;
+}
+.camp-img {
+  border-radius:14px; overflow:hidden; aspect-ratio:3/4;
+  box-shadow:0 4px 16px rgba(0,0,0,0.1);
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.camp-img:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(0,0,0,0.15); }
+.camp-img img { width:100%; height:100%; object-fit:cover; display:block; }
+
+/* ROLE GRID */
+.subsection-title { font-size:22px; font-weight:700; margin-bottom:5px; color:var(--navy); }
+.subsection-sub { font-size:13px; color:var(--mid); margin-bottom:24px; }
+.role-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:48px; }
+.role-card {
+  background:var(--white); border:1.5px solid var(--border); border-radius:12px;
+  padding:18px 20px; display:flex; align-items:flex-start; gap:12px;
+  transition:all 0.2s;
+}
+.role-card:hover { border-color:var(--gold); box-shadow:0 4px 16px rgba(232,184,75,0.1); transform:translateY(-2px); }
+.role-icon {
+  width:36px; height:36px; border-radius:9px; background:rgba(232,184,75,0.1);
+  display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;
+}
+.role-card h4 { font-size:13px; font-weight:600; color:var(--navy); margin-bottom:3px; }
+.role-card p { font-size:12px; color:var(--mid); line-height:1.5; }
+
+/* CREATOR GRID */
+.creator-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin-bottom:8px; }
+.creator-card {
+  border-radius:14px; overflow:hidden; aspect-ratio:3/4;
+  box-shadow:0 3px 12px rgba(0,0,0,0.08); position:relative;
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.creator-card:hover { transform:translateY(-6px); box-shadow:0 16px 32px rgba(0,0,0,0.15); }
+.creator-card img { width:100%; height:100%; object-fit:cover; display:block; }
+.creator-badge {
+  position:absolute; top:10px; left:10px;
+  background:rgba(13,27,42,0.7); backdrop-filter:blur(6px);
+  color:var(--white); padding:3px 9px; border-radius:100px;
+  font-size:10px; font-weight:600;
+}
+.creator-play {
+  position:absolute; top:10px; right:10px;
+  width:28px; height:28px; border-radius:50%;
+  background:rgba(255,255,255,0.15); backdrop-filter:blur(6px);
+  display:flex; align-items:center; justify-content:center;
+  font-size:10px; color:white;
+}
+.creator-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(13,27,42,0.85) 0%, transparent 55%);
+  opacity:0; transition:opacity 0.25s;
+  display:flex; flex-direction:column; justify-content:flex-end; padding:14px;
+}
+.creator-card:hover .creator-overlay { opacity:1; }
+.creator-overlay-label { font-size:11px; font-weight:600; color:var(--white); margin-bottom:6px; }
+.ig-btn {
+  display:inline-flex; align-items:center; gap:5px;
+  background:var(--gold); color:var(--navy); padding:5px 10px;
+  border-radius:100px; font-size:10px; font-weight:700; width:fit-content;
+}
+
+/* SWEET HEAT */
+.sweetheat { background:var(--navy); }
+.sweetheat .eyebrow { color:#f97316; }
+.sweetheat .eyebrow::before { background:#f97316; }
+.sweetheat h2.section-title { color:var(--white); }
+.sh-grid { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; }
+.sh-text { font-size:14px; color:rgba(255,255,255,0.5); line-height:1.85; }
+.sh-text p+p { margin-top:14px; }
+.sh-text strong { color:var(--white); font-weight:600; }
+.sh-placeholder {
+  margin-top:28px; background:rgba(232,184,75,0.07);
+  border:1px dashed rgba(232,184,75,0.25); border-radius:12px;
+  padding:24px; display:flex; align-items:center; gap:14px;
+}
+.sh-placeholder-icon { font-size:26px; }
+.sh-placeholder h4 { font-size:14px; font-weight:600; color:var(--gold); margin-bottom:3px; }
+.sh-placeholder p { font-size:12px; color:rgba(255,255,255,0.35); }
+.sh-cards { display:flex; flex-direction:column; gap:10px; }
+.sh-card {
+  background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07);
+  border-radius:12px; padding:18px 20px; display:flex; align-items:flex-start; gap:14px;
+  transition:all 0.2s;
+}
+.sh-card:hover { background:rgba(232,184,75,0.07); border-color:rgba(232,184,75,0.2); transform:translateX(4px); }
+.sh-icon {
+  width:40px; height:40px; border-radius:10px; flex-shrink:0;
+  background:rgba(232,184,75,0.1); display:flex; align-items:center; justify-content:center; font-size:20px;
+}
+.sh-card h4 { font-size:13px; font-weight:600; color:var(--white); margin-bottom:4px; }
+.sh-card p { font-size:12px; color:rgba(255,255,255,0.38); line-height:1.55; }
+
+/* SYSTEMS */
+.systems { background:var(--white); }
+.systems-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.sys-card {
+  border-radius:16px; padding:32px; border:1.5px solid var(--border); transition:all 0.25s;
+}
+.sys-card.dark { background:var(--navy2); border-color:rgba(255,255,255,0.06); }
+.sys-card:hover { border-color:var(--gold); box-shadow:0 6px 24px rgba(232,184,75,0.08); transform:translateY(-3px); }
+.sys-card.dark:hover { border-color:rgba(232,184,75,0.35); }
+.sys-icon {
+  width:48px; height:48px; border-radius:12px; background:rgba(232,184,75,0.1);
+  display:flex; align-items:center; justify-content:center; font-size:24px; margin-bottom:18px;
+}
+.sys-title { font-size:18px; font-weight:700; margin-bottom:8px; color:var(--navy); }
+.sys-card.dark .sys-title { color:var(--white); }
+.sys-desc { font-size:13px; color:var(--mid); line-height:1.7; margin-bottom:18px; }
+.sys-card.dark .sys-desc { color:rgba(255,255,255,0.38); }
+.sys-steps { display:flex; flex-direction:column; gap:7px; }
+.sys-step {
+  display:flex; gap:10px; align-items:flex-start;
+  padding:9px 12px; border-radius:9px; background:rgba(232,184,75,0.04);
+}
+.sys-card.dark .sys-step { background:rgba(255,255,255,0.04); }
+.sys-num { font-size:14px; font-weight:700; color:var(--gold); flex-shrink:0; min-width:20px; }
+.sys-step-text { font-size:12px; color:var(--mid); line-height:1.5; }
+.sys-card.dark .sys-step-text { color:rgba(255,255,255,0.32); }
+
+/* SCOPE */
+.scope { background:var(--cream); }
+.scope-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:var(--light); border-radius:18px; overflow:hidden; }
+.scope-item { background:var(--white); padding:24px 20px; transition:all 0.22s; cursor:default; }
+.scope-item:hover { background:var(--navy); }
+.scope-item:hover .s-title { color:rgba(255,255,255,0.5); }
+.scope-item:hover .s-stat { color:var(--gold); }
+.scope-item:hover .s-label { color:rgba(255,255,255,0.3); }
+.s-icon { font-size:24px; margin-bottom:14px; display:block; }
+.s-title { font-size:11px; font-weight:600; color:var(--mid); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px; transition:color 0.22s; }
+.s-stat { font-size:22px; font-weight:700; color:var(--navy); transition:color 0.22s; }
+.s-label { font-size:11px; color:var(--mid); margin-top:2px; transition:color 0.22s; }
+
+/* FOOTER */
+footer {
+  background:var(--navy); padding:48px 64px;
+  display:flex; justify-content:space-between; align-items:center;
+  border-top:1px solid rgba(232,184,75,0.1);
+}
+.footer-name { font-size:24px; font-weight:700; color:var(--white); }
+.footer-name span { color:var(--gold); }
+.footer-sub { font-size:11px; color:rgba(255,255,255,0.28); margin-top:5px; letter-spacing:2px; text-transform:uppercase; }
+.footer-contact { text-align:right; font-size:13px; color:rgba(255,255,255,0.4); line-height:2; }
+
+/* ANIMATE */
+.fade-up { opacity:0; transform:translateY(28px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.fade-up.visible { opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name">Osama <span>Ahmed</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#select">Select Campaign</a></li>
+    <li><a href="#sweetheat">Sweet Heat</a></li>
+    <li><a href="#systems">Systems</a></li>
+    <li><a href="#scope">Scope</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">
+      <div class="badge-dot"></div>
+      <span class="badge-text">Campaign Portfolio · 2025</span>
+    </div>
+    <h1 class="hero-title">Osama<br><span>Ahmed</span></h1>
+    <p class="hero-role">Influencer & Social Marketing</p>
+    <p class="hero-desc">5+ years building brands, running influencer programs, and producing campaigns end-to-end — currently embedded as brand marketing lead for a national Canadian QSR franchise across 23 locations.</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Years Exp.</span></div>
+      <div class="stat"><span class="stat-num">6+</span><span class="stat-label">LTO Campaigns</span></div>
+      <div class="stat"><span class="stat-num">3.5–4×</span><span class="stat-label">ROAS</span></div>
+      <div class="stat"><span class="stat-num">23</span><span class="stat-label">Locations</span></div>
+    </div>
+  </div>
+  <div style="position:relative; z-index:1; flex-shrink:0;">
+    <div class="hero-photo">
+      <img src="https://lh3.googleusercontent.com/d/1y0i4G4BUsMnfautOcmD1DGQrCqL9KALj" alt="Osama Ahmed">
+    </div>
+    <div class="hero-photo-tag">Brand & Marketing Lead</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="eyebrow">Who I Am</div>
+  <h2 class="section-title">The full picture</h2>
+  <div class="about-grid">
+    <div class="about-text fade-up">
+      <p>For the past 19 months I've been the embedded brand marketing lead for <strong>BW Restaurants Inc.</strong> — Boardwalk Burgers and Lava Grill — operating across 23 Canadian franchise locations. I sit inside their brand team, reporting directly to the Brand Director and CEO.</p>
+      <p>I own the influencer program end-to-end: strategy, creator sourcing and contracting, briefing, content review, paid integration, event production, and reporting. I don't support campaigns — I design them and run them.</p>
+      <p>I've also built the operational systems behind the scenes: ClickUp automation workflows that notify franchisees the moment an influencer is booked, ticketing systems for 23 locations, and CRM migrations that kept the franchise development pipeline running without a beat missed.</p>
+      <p>Currently also building <strong>InfluenceMap</strong> on the side — a creator discovery and outreach automation tool — because I genuinely believe AI will reshape how influencer marketing works at scale.</p>
+    </div>
+    <div class="skills-list fade-up">
+      <div class="skill-item"><span class="sk-icon">🎯</span>Influencer Strategy & Program Development</div>
+      <div class="skill-item"><span class="sk-icon">🤝</span>Creator Sourcing, Briefing & Contracting</div>
+      <div class="skill-item"><span class="sk-icon">📱</span>Meta, TikTok & Instagram Campaigns</div>
+      <div class="skill-item"><span class="sk-icon">🎬</span>UGC → Paid Social Pipeline</div>
+      <div class="skill-item"><span class="sk-icon">🎪</span>Influencer Event Production</div>
+      <div class="skill-item"><span class="sk-icon">📊</span>Campaign Analytics & Reporting</div>
+      <div class="skill-item"><span class="sk-icon">⚙️</span>ClickUp Automation & Systems</div>
+      <div class="skill-item"><span class="sk-icon">💼</span>Client & Stakeholder Management</div>
+      <div class="skill-item"><span class="sk-icon">🤖</span>AI Tools & Marketing Automation</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOARDWALK SELECT -->
+<section class="campaign-sec" id="select">
+  <div class="eyebrow">Featured Campaign</div>
+  <h2 class="section-title">Boardwalk Select</h2>
+
+  <div class="select-intro fade-up">
+    <div class="select-intro-left">
+      <div class="camp-tag">✦ Influencer & Community Campaign</div>
+      <h3 class="camp-title">Select<br><span>Squad</span></h3>
+      <div class="camp-tagline">"For Your Everyday Cravings" — Fan favourites under $5.99</div>
+      <div class="camp-pills">
+        <span class="pill pill-gold">Community Building</span>
+        <span class="pill pill-outline">UGC Strategy</span>
+        <span class="pill pill-outline">Paid Social</span>
+        <span class="pill pill-outline">TikTok & IG</span>
+        <span class="pill pill-outline">Creator Briefing</span>
+      </div>
+      <p class="camp-desc">A creator-led program built around belonging, not hype. The Select Squad concept positioned Boardwalk Select as a daily routine choice — not a deal — targeting Gen Z and young professionals through authentic, unscripted UGC storytelling. All creator content was repurposed directly into paid Meta and TikTok ads.</p>
+    </div>
+    <div class="select-intro-right">
+      <a href="https://www.instagram.com/p/DVJcz8XjUbA/?img_index=1" target="_blank" class="camp-img"><img src="https://lh3.googleusercontent.com/d/1F90K0E0DN3uYhbyRJ0aRj2QOCnKkBu5C" alt="Boardwalk Select KV" /></a>
+      <a href="https://www.instagram.com/p/DV9W0rVDXLk/" target="_blank" class="camp-img"><img src="https://lh3.googleusercontent.com/d/15_qkyQGsCad1DZCEqBuJKX3jcgxGQBka" alt="Boardwalk Select Campaign 1" /></a>
+      <a href="https://www.instagram.com/p/DVl645zjUTP/?img_index=1" target="_blank" class="camp-img"><img src="https://lh3.googleusercontent.com/d/1MrY5e7Jrx0M2pk9hG2I4N-vFh_xdyvms" alt="Boardwalk Select Campaign 2" /></a>
+    </div>
+  </div>
+
+  <!-- MY ROLE -->
+  <div class="subsection-title fade-up">My Role in This Campaign</div>
+  <div class="subsection-sub fade-up">End-to-end ownership — from concept to creator payments</div>
+  <div class="role-grid fade-up">
+    <div class="role-card"><div class="role-icon">💡</div><div><h4>Concept Creation</h4><p>Conceived the Select Squad community identity and campaign positioning from scratch</p></div></div>
+    <div class="role-card"><div class="role-icon">📋</div><div><h4>Partnership Brief</h4><p>Authored the full influencer brief: creator criteria, content pillars, platform strategy, sample lines, photo guidelines</p></div></div>
+    <div class="role-card"><div class="role-icon">🎯</div><div><h4>Creator Mix Strategy</h4><p>Curated diverse creator types: students, athletes, gamers, artists, late-night workers — prioritizing authentic fit over follower count</p></div></div>
+    <div class="role-card"><div class="role-icon">🤝</div><div><h4>Sourcing & Contracting</h4><p>Managed full creator outreach, negotiation, contracting, and payment coordination directly with the brand</p></div></div>
+    <div class="role-card"><div class="role-icon">✅</div><div><h4>Content Review</h4><p>Reviewed all creator drafts for brand alignment, tone, and compliance before posting</p></div></div>
+    <div class="role-card"><div class="role-icon">📈</div><div><h4>UGC → Paid Pipeline</h4><p>Repurposed top-performing creator content directly into paid Meta and TikTok ads for extended reach</p></div></div>
+    <div class="role-card"><div class="role-icon">👕</div><div><h4>Merchandise Oversight</h4><p>Oversaw design, development, and production of Select Squad branded merchandise</p></div></div>
+    <div class="role-card"><div class="role-icon">📊</div><div><h4>Reporting & Optimization</h4><p>Tracked engagement, UGC quality, and ad performance to optimize creator selection and formats</p></div></div>
+  </div>
+
+  <!-- CREATOR GRID -->
+  <div class="subsection-title fade-up">Creator Content</div>
+  <div class="subsection-sub fade-up">Real creators, real routines — all briefed, reviewed, and managed by me</div>
+  <div class="creator-grid fade-up">
+    <a class="creator-card" href="https://www.instagram.com/p/DWM_kiPkh-e/" target="_blank">
+      <img src="https://lh3.googleusercontent.com/d/11PmzuOsb5l8VH6KW5wlAut6V-cGCjRxt" alt="Lifestyle Creator" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      <div class="creator-overlay"><div class="creator-overlay-label">Lifestyle Creator</div><div class="ig-btn">📷 Instagram</div></div>
+    </a>
+    <a class="creator-card" href="https://www.instagram.com/p/DWKpvvKAETJ/" target="_blank">
+      <img src="https://lh3.googleusercontent.com/d/1m3kSu_e7w5FwxN6ldKZCsOQjDAnURv_5" alt="In-Store Creator" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      <div class="creator-overlay"><div class="creator-overlay-label">In-Store Creator</div><div class="ig-btn">📷 Instagram</div></div>
+    </a>
+    <a class="creator-card" href="https://www.instagram.com/p/DWG6canDlB3/" target="_blank">
+      <img src="https://lh3.googleusercontent.com/d/1jnEZDf8tZhatjlOajxLr8NArruNYlplx" alt="Foodie Creator" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      <div class="creator-overlay"><div class="creator-overlay-label">Foodie Creator</div><div class="ig-btn">📷 Instagram</div></div>
+    </a>
+    <a class="creator-card" href="https://www.instagram.com/p/DVrlprAj453/" target="_blank">
+      <img src="https://lh3.googleusercontent.com/d/1zuHyETzkVvGeIttdE9m8FxAE_H0J4Pun" alt="Routine Creator" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      <div class="creator-overlay"><div class="creator-overlay-label">Routine Creator</div><div class="ig-btn">📷 Instagram</div></div>
+    </a>
+    <a class="creator-card" href="https://www.instagram.com/p/DVi8vO_iQp5/" target="_blank">
+      <img src="https://lh3.googleusercontent.com/d/1fRqgLBPQCDbTegCX7lNWAK_XDQtRKxVS" alt="Athlete Creator" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      <div class="creator-overlay"><div class="creator-overlay-label">Athlete Creator</div><div class="ig-btn">📷 Instagram</div></div>
+    </a>
+  </div>
+</section>
+
+<!-- SWEET HEAT -->
+<section class="sweetheat" id="sweetheat">
+  <div class="eyebrow">360° Campaign</div>
+  <h2 class="section-title">Sweet Heat 🌶️</h2>
+
+  <div class="sh-text fade-up" style="margin-bottom:32px; max-width:100%;">
+    <p>A brief to launch one burger became a full 360° campaign. On-set, I pitched and won approval for a <strong>dual product line</strong> — sweet &amp; spicy chicken and beef — a Canadian first. The concept, tagline, and positioning were entirely mine.</p>
+    <p>The campaign ran across <strong>print, in-store, social, paid Meta &amp; TikTok, and a live influencer launch event</strong> — 15 creators, a DJ, branded decor, and gift hampers — with co-brand compliance managed across both <strong>Tabasco</strong> and <strong>Coca-Cola</strong>.</p>
+  </div>
+
+  <div class="sh-cards fade-up" style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:36px;">
+    <div class="sh-card"><div class="sh-icon">💡</div><div><h4>Product Innovation On-Set</h4><p>Ideated and pitched the dual product expansion and Canadian-first duo concept during the brand shoot</p></div></div>
+    <div class="sh-card"><div class="sh-icon">🎨</div><div><h4>Campaign Concept &amp; Tagline</h4><p>"Canada's First Sweet &amp; Spicy Chicken &amp; Beef Duo" — concept, positioning, and messaging all mine</p></div></div>
+    <div class="sh-card"><div class="sh-icon">🤝</div><div><h4>Co-Brand Compliance</h4><p>Managed creative approvals with Tabasco and Coca-Cola across all influencer and channel touchpoints</p></div></div>
+    <div class="sh-card"><div class="sh-icon">🎪</div><div><h4>Live Influencer Event</h4><p>15 creators, DJ, branded decor, gift hampers, on-site content capture — full production end-to-end</p></div></div>
+    <div class="sh-card"><div class="sh-icon">🖨️</div><div><h4>360° Channel Execution</h4><p>Print, in-store, menus, social, paid ads, influencer — all channels aligned and managed by me</p></div></div>
+    <div class="sh-card"><div class="sh-icon">📈</div><div><h4>6–8% System-Wide Sales Lift</h4><p>Consistent with all major LTO campaigns across 23 franchise locations</p></div></div>
+  </div>
+
+  <div class="fade-up" style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px;">
+    <a href="https://www.instagram.com/p/DRxWDW3Acj4/?img_index=1" target="_blank" class="camp-img" style="aspect-ratio:3/4;">
+      <img src="https://lh3.googleusercontent.com/d/1iehaTxLLcnQl4LWCkv_TPlCWGkdN-7r9" alt="Sweet Heat KV" />
+    </a>
+    <a href="https://www.instagram.com/p/DSt4YUPDqg0/" target="_blank" class="camp-img" style="aspect-ratio:3/4;">
+      <img src="https://lh3.googleusercontent.com/d/1wbah3WM057dB0YYMkDAxG8ZnWXOMRDlP" alt="Sweet Heat Event 1" />
+    </a>
+    <a href="https://www.instagram.com/p/DSu1WyMDW_G/" target="_blank" class="camp-img" style="aspect-ratio:3/4;">
+      <img src="https://lh3.googleusercontent.com/d/1zVxty7KGKojKhCsuOZahLSBunbVXUB2k" alt="Sweet Heat Event 2" />
+    </a>
+    <a href="https://www.instagram.com/p/DSvOONcDzTx/" target="_blank" class="camp-img" style="aspect-ratio:3/4;">
+      <img src="https://lh3.googleusercontent.com/d/1AOIY24936FYPZn1nOqoGqC7FbukUsHHI" alt="Sweet Heat Event 3" />
+    </a>
+  </div>
+
+</section>
+
+<!-- SYSTEMS -->
+<section class="systems" id="systems">
+  <div class="eyebrow">Systems Thinking</div>
+  <h2 class="section-title">Built to scale</h2>
+  <div class="systems-grid fade-up">
+    <div class="sys-card dark">
+      <div class="sys-icon">⚡</div>
+      <div class="sys-title" style="color:var(--white)">Influencer Booking Automation</div>
+      <div class="sys-desc" style="color:rgba(255,255,255,0.38)">A ClickUp workflow that eliminates manual coordination the moment a creator visit is confirmed.</div>
+      <div class="sys-steps">
+        <div class="sys-step"><div class="sys-num">01</div><div class="sys-step-text">PR Manager fills form: creator details, franchise, date, deliverables, food offer</div></div>
+        <div class="sys-step"><div class="sys-num">02</div><div class="sys-step-text">Status set to "Booked" — automation triggers instantly</div></div>
+        <div class="sys-step"><div class="sys-num">03</div><div class="sys-step-text">Auto-email fires to franchisee, brand director, CEO & franchise consultants</div></div>
+        <div class="sys-step"><div class="sys-num">04</div><div class="sys-step-text">Zero manual follow-up. Full visibility. Every time.</div></div>
+      </div>
+    </div>
+    <div class="sys-card">
+      <div class="sys-icon">🎫</div>
+      <div class="sys-title">Franchisee Request Ticketing</div>
+      <div class="sys-desc">Centralized intake so no request from 23 locations ever falls through the cracks.</div>
+      <div class="sys-steps">
+        <div class="sys-step"><div class="sys-num">01</div><div class="sys-step-text">Franchisee submits: print request, promo, Google profile fix, campaign issue</div></div>
+        <div class="sys-step"><div class="sys-num">02</div><div class="sys-step-text">ClickUp auto-generates a tracked ticket with timestamp</div></div>
+        <div class="sys-step"><div class="sys-num">03</div><div class="sys-step-text">Task assigned to relevant team member automatically</div></div>
+        <div class="sys-step"><div class="sys-num">04</div><div class="sys-step-text">Full audit trail. Full accountability. Across all locations.</div></div>
+      </div>
+    </div>
+    <div class="sys-card">
+      <div class="sys-icon">🗺️</div>
+      <div class="sys-title">InfluenceMap</div>
+      <div class="sys-desc">Personal project: building a creator discovery and outreach automation platform using Python-based scraping and automated email sequencing — because AI will fundamentally change how influencer marketing scales.</div>
+    </div>
+    <div class="sys-card dark">
+      <div class="sys-icon">🔄</div>
+      <div class="sys-title" style="color:var(--white)">CRM Migration</div>
+      <div class="sys-desc" style="color:rgba(255,255,255,0.38)">Led the franchise development CRM migration from GoHighLevel to Freshsales — pipeline setup, contact migration, and team onboarding — while maintaining the inbound lead pipeline without interruption.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SCOPE -->
+<section class="scope" id="scope">
+  <div class="eyebrow">Full Scope</div>
+  <h2 class="section-title">What I own every month</h2>
+  <div class="scope-grid fade-up">
+    <div class="scope-item"><span class="s-icon">🎯</span><div class="s-title">Influencer Marketing</div><div class="s-stat">End-to-End</div><div class="s-label">Strategy → Reporting</div></div>
+    <div class="scope-item"><span class="s-icon">🎬</span><div class="s-title">Content Production</div><div class="s-stat">30–40</div><div class="s-label">Assets per month</div></div>
+    <div class="scope-item"><span class="s-icon">📱</span><div class="s-title">Paid Social ROAS</div><div class="s-stat">3.5–4×</div><div class="s-label">Achieved consistently</div></div>
+    <div class="scope-item"><span class="s-icon">🚀</span><div class="s-title">LTO Sales Lift</div><div class="s-stat">6–8%</div><div class="s-label">Per campaign</div></div>
+    <div class="scope-item"><span class="s-icon">💌</span><div class="s-title">CRM Contacts</div><div class="s-stat">25K+</div><div class="s-label">Database built</div></div>
+    <div class="scope-item"><span class="s-icon">👥</span><div class="s-title">Team Coordination</div><div class="s-stat">10+</div><div class="s-label">Agency resources</div></div>
+    <div class="scope-item"><span class="s-icon">🏪</span><div class="s-title">Franchise Leads</div><div class="s-stat">1,500+</div><div class="s-label">Generated to date</div></div>
+    <div class="scope-item"><span class="s-icon">🤝</span><div class="s-title">Loyalty Members</div><div class="s-stat">8,000+</div><div class="s-label">Active members</div></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-name">Osama <span>Ahmed</span></div>
+    <div class="footer-sub">Influencer & Social Marketing · Burlington, ON</div>
+  </div>
+  <div class="footer-contact">
+    <div>(647) 673-8118</div>
+    <div>osamaahmed.ext@gmail.com</div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold:0.07, rootMargin:'0px 0px -40px 0px' });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+document.querySelectorAll('.role-grid>*,.creator-grid>*,.systems-grid>*,.scope-grid>*,.skills-list>*,.sh-cards>*').forEach((el,i) => {
+  el.style.transitionDelay = (i*0.06)+'s';
+});
+</script>
+</body>
+</html>
