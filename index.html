@@ -388,19 +388,19 @@ footer {
 .results-bar {
   display:grid; grid-template-columns:repeat(4,1fr);
   gap:2px; background:var(--navy); border-radius:16px;
-  overflow:hidden; margin-top:24px;
+  overflow:hidden; margin-top:16px;
 }
 .result-item {
-  padding:20px 16px; text-align:center; background:var(--navy);
+  padding:28px 24px; text-align:center; background:var(--navy);
   border-right:1px solid rgba(255,255,255,0.07);
   transition:background 0.2s;
 }
 .result-item:last-child { border-right:none; }
 .result-item:hover { background:#132436; }
-.result-num { font-size:22px; font-weight:700; color:var(--gold); display:block; line-height:1.2; }
-.result-label { font-size:10px; color:rgba(255,255,255,0.35); text-transform:uppercase; letter-spacing:1.5px; margin-top:4px; display:block; }
-.results-eyebrow { font-size:11px; color:var(--mid); letter-spacing:1.5px; text-transform:uppercase; margin-top:32px; margin-bottom:8px; display:flex; align-items:center; gap:8px; }
-.results-eyebrow::before { content:''; width:16px; height:1px; background:var(--gold); }
+.result-num { font-size:28px; font-weight:700; color:var(--gold); display:block; line-height:1.2; }
+.result-label { font-size:11px; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:1.5px; margin-top:6px; display:block; }
+.results-eyebrow { font-size:12px; color:var(--gold); letter-spacing:2px; text-transform:uppercase; margin-top:36px; margin-bottom:12px; display:flex; align-items:center; gap:10px; font-weight:600; }
+.results-eyebrow::before { content:''; width:20px; height:2px; background:var(--gold); }
 @media (max-width:768px) { .results-bar { grid-template-columns:repeat(2,1fr); } }
 </style>
 </head>
@@ -533,7 +533,7 @@ footer {
       <div class="creator-overlay"><div class="creator-overlay-label">Athlete Creator</div><div class="ig-btn">📷 Instagram</div></div>
     </a>
 
-  <p class="results-eyebrow fade-up">UGC → Paid Performance · Ongoing Campaign</p>
+  <p class="results-eyebrow fade-up">UGC Creator Content → Running as Paid Meta &amp; TikTok Ads · Ongoing</p>
   <div class="results-bar fade-up">
     <div class="result-item"><span class="result-num">$0.14</span><span class="result-label">Avg. Cost Per Click</span></div>
     <div class="result-item"><span class="result-num">4.5%</span><span class="result-label">Click-Through Rate</span></div>
