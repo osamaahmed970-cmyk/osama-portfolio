@@ -311,6 +311,78 @@ footer {
 /* ANIMATE */
 .fade-up { opacity:0; transform:translateY(28px); transition:opacity 0.6s ease, transform 0.6s ease; }
 .fade-up.visible { opacity:1; transform:translateY(0); }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  nav { padding:14px 20px; }
+  .nav-links { display:none; }
+
+  .hero {
+    flex-direction:column;
+    align-items:flex-start;
+    padding:100px 24px 48px;
+    gap:32px;
+    min-height:auto;
+  }
+  .hero-left { max-width:100%; }
+  .hero-left > div[style] { flex-shrink:0; width:100%; display:flex; justify-content:center; }
+  .hero-photo { width:200px; height:260px; margin:0 auto; }
+  .hero-photo-tag { font-size:10px; }
+  h1.hero-title { font-size:48px; }
+  .hero-stats { max-width:100%; }
+  .stat-num { font-size:18px; }
+
+  section { padding:48px 24px; }
+
+  .about-grid { grid-template-columns:1fr; gap:32px; }
+
+  .select-intro { gap:24px; }
+  .select-intro-right { grid-template-columns:1fr 1fr; gap:8px; }
+  .select-intro-right .camp-img:last-child { grid-column:1 / -1; }
+
+  .role-grid { grid-template-columns:1fr; gap:8px; }
+
+  .creator-grid { grid-template-columns:repeat(2,1fr); gap:8px; }
+  .creator-grid .creator-card:last-child { grid-column:1 / -1; }
+
+  .sh-cards { grid-template-columns:1fr !important; }
+  .sh-cards > div { margin-bottom:0; }
+
+  .fade-up[style*="grid-template-columns:repeat(4"] {
+    grid-template-columns:repeat(2,1fr) !important;
+  }
+
+  .systems-grid { grid-template-columns:1fr; }
+
+  .scope-grid { grid-template-columns:repeat(2,1fr); }
+
+  footer { flex-direction:column; gap:16px; padding:32px 24px; text-align:center; }
+  .footer-contact { text-align:center; }
+}
+
+@media (max-width: 768px) {
+  /* Sweet Heat images - 2x2 on mobile */
+  .sweetheat .fade-up[style] { grid-template-columns:repeat(2,1fr) !important; }
+  
+  /* Hero photo on mobile - show below text */
+  .hero > div[style*="flex-shrink"] { width:100%; display:flex; flex-direction:column; align-items:center; }
+  
+  /* Scope grid 2 cols */
+  .scope-grid { grid-template-columns:repeat(2,1fr) !important; }
+
+  /* Campaign section title smaller */
+  h2.section-title { font-size:28px; margin-bottom:28px; }
+  h3.camp-title { font-size:32px; }
+
+  /* Select squad - stack images in 1 col on very small */
+  .select-intro-right { grid-template-columns:1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+  .creator-grid { grid-template-columns:1fr 1fr; }
+  .hero-stats .stat-num { font-size:16px; }
+  .hero-stats .stat-label { font-size:9px; }
+}
 </style>
 </head>
 <body>
@@ -338,7 +410,7 @@ footer {
     <p class="hero-desc">5+ years building brands, running influencer programs, and producing campaigns end-to-end — currently embedded as brand marketing lead for a national Canadian QSR franchise across 23 locations.</p>
     <div class="hero-stats">
       <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Years Exp.</span></div>
-      <div class="stat"><span class="stat-num">Multiple</span><span class="stat-label">Campaigns Led</span></div>
+      <div class="stat"><span class="stat-num">8+</span><span class="stat-label">Campaigns Led</span></div>
       <div class="stat"><span class="stat-num">3.5–4×</span><span class="stat-label">ROAS</span></div>
       <div class="stat"><span class="stat-num">23</span><span class="stat-label">Locations</span></div>
     </div>
