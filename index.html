@@ -191,9 +191,9 @@ h3.camp-title span { color:var(--gold); }
 .role-card p { font-size:12px; color:var(--mid); line-height:1.5; }
 
 /* CREATOR GRID */
-.creator-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin-bottom:8px; }
+.creator-grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; margin-bottom:8px; }
 .creator-card {
-  border-radius:14px; overflow:hidden; aspect-ratio:3/4;
+  border-radius:14px; overflow:hidden; aspect-ratio:3/4; width:100%;
   box-shadow:0 3px 12px rgba(0,0,0,0.08); position:relative;
   transition:transform 0.3s, box-shadow 0.3s;
 }
@@ -289,9 +289,10 @@ h3.camp-title span { color:var(--gold); }
 .scope-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:var(--light); border-radius:18px; overflow:hidden; }
 .scope-item { background:var(--white); padding:24px 20px; transition:all 0.22s; cursor:default; }
 .scope-item:hover { background:var(--navy); }
-.scope-item:hover .s-title { color:rgba(255,255,255,0.5); }
-.scope-item:hover .s-stat { color:var(--gold); }
-.scope-item:hover .s-label { color:rgba(255,255,255,0.3); }
+.scope-item:hover .s-title { color:rgba(255,255,255,0.5) !important; }
+.scope-item:hover .s-stat { color:var(--gold) !important; }
+.scope-item:hover .s-label { color:rgba(255,255,255,0.3) !important; }
+.scope-item:hover .s-icon { filter:brightness(10); }
 .s-icon { font-size:24px; margin-bottom:14px; display:block; }
 .s-title { font-size:11px; font-weight:600; color:var(--mid); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px; transition:color 0.22s; }
 .s-stat { font-size:22px; font-weight:700; color:var(--navy); transition:color 0.22s; }
@@ -309,8 +310,7 @@ footer {
 .footer-contact { text-align:right; font-size:13px; color:rgba(255,255,255,0.4); line-height:2; }
 
 /* ANIMATE */
-.fade-up { opacity:0; transform:translateY(28px); transition:opacity 0.6s ease, transform 0.6s ease; }
-.fade-up.visible { opacity:1; transform:translateY(0); }
+.fade-up { opacity:1; transform:none; }
 
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
@@ -388,7 +388,7 @@ footer {
 .results-bar {
   display:grid; grid-template-columns:repeat(4,1fr);
   gap:2px; background:var(--navy); border-radius:16px;
-  overflow:hidden; margin-top:16px;
+  overflow:hidden; margin-top:16px; width:100%; box-sizing:border-box;
 }
 .result-item {
   padding:28px 24px; text-align:center; background:var(--navy);
@@ -399,7 +399,7 @@ footer {
 .result-item:hover { background:#132436; }
 .result-num { font-size:28px; font-weight:700; color:var(--gold); display:block; line-height:1.2; }
 .result-label { font-size:11px; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:1.5px; margin-top:6px; display:block; }
-.results-eyebrow { font-size:12px; color:var(--gold); letter-spacing:2px; text-transform:uppercase; margin-top:36px; margin-bottom:12px; display:flex; align-items:center; gap:10px; font-weight:600; }
+.results-eyebrow { font-size:12px; color:var(--gold); letter-spacing:2px; text-transform:uppercase; margin-top:0; margin-bottom:12px; display:flex; align-items:center; gap:10px; font-weight:600; }
 .results-eyebrow::before { content:''; width:20px; height:2px; background:var(--gold); }
 @media (max-width:768px) { .results-bar { grid-template-columns:repeat(2,1fr); } }
 </style>
@@ -533,14 +533,18 @@ footer {
       <div class="creator-overlay"><div class="creator-overlay-label">Athlete Creator</div><div class="ig-btn">📷 Instagram</div></div>
     </a>
 
-  <p class="results-eyebrow fade-up">UGC Creator Content → Running as Paid Meta &amp; TikTok Ads · Ongoing</p>
+</section>
+
+<!-- UGC RESULTS BAR - outside section to avoid grid constraint -->
+<div style="background:var(--cream); padding:0 64px 48px;">
+  <p class="results-eyebrow fade-up" style="margin-top:0; padding-top:32px;">UGC Creator Content → Running as Paid Meta &amp; TikTok Ads · Ongoing</p>
   <div class="results-bar fade-up">
     <div class="result-item"><span class="result-num">$0.14</span><span class="result-label">Avg. Cost Per Click</span></div>
     <div class="result-item"><span class="result-num">4.5%</span><span class="result-label">Click-Through Rate</span></div>
     <div class="result-item"><span class="result-num">3.5–4×</span><span class="result-label">ROAS</span></div>
     <div class="result-item"><span class="result-num">Above Avg.</span><span class="result-label">Engagement Ranking</span></div>
   </div>
-</section>
+</div>
 
 <!-- SWEET HEAT -->
 <section class="sweetheat" id="sweetheat">
@@ -647,13 +651,8 @@ footer {
 </footer>
 
 <script>
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold:0.07, rootMargin:'0px 0px -40px 0px' });
-document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-document.querySelectorAll('.role-grid>*,.creator-grid>*,.systems-grid>*,.scope-grid>*,.skills-list>*,.sh-cards>*').forEach((el,i) => {
-  el.style.transitionDelay = (i*0.06)+'s';
-});
+
+
 </script>
 </body>
 </html>
