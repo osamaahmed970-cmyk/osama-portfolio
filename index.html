@@ -383,6 +383,25 @@ footer {
   .hero-stats .stat-num { font-size:16px; }
   .hero-stats .stat-label { font-size:9px; }
 }
+
+/* PAID RESULTS BAR */
+.results-bar {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:2px; background:var(--navy); border-radius:16px;
+  overflow:hidden; margin-top:24px;
+}
+.result-item {
+  padding:20px 16px; text-align:center; background:var(--navy);
+  border-right:1px solid rgba(255,255,255,0.07);
+  transition:background 0.2s;
+}
+.result-item:last-child { border-right:none; }
+.result-item:hover { background:#132436; }
+.result-num { font-size:22px; font-weight:700; color:var(--gold); display:block; line-height:1.2; }
+.result-label { font-size:10px; color:rgba(255,255,255,0.35); text-transform:uppercase; letter-spacing:1.5px; margin-top:4px; display:block; }
+.results-eyebrow { font-size:11px; color:var(--mid); letter-spacing:1.5px; text-transform:uppercase; margin-top:32px; margin-bottom:8px; display:flex; align-items:center; gap:8px; }
+.results-eyebrow::before { content:''; width:16px; height:1px; background:var(--gold); }
+@media (max-width:768px) { .results-bar { grid-template-columns:repeat(2,1fr); } }
 </style>
 </head>
 <body>
@@ -513,6 +532,13 @@ footer {
       <img src="https://lh3.googleusercontent.com/d/1fRqgLBPQCDbTegCX7lNWAK_XDQtRKxVS" alt="Athlete Creator" style="width:100%;height:100%;object-fit:cover;display:block;" />
       <div class="creator-overlay"><div class="creator-overlay-label">Athlete Creator</div><div class="ig-btn">📷 Instagram</div></div>
     </a>
+
+  <p class="results-eyebrow fade-up">UGC → Paid Performance · Ongoing Campaign</p>
+  <div class="results-bar fade-up">
+    <div class="result-item"><span class="result-num">$0.14</span><span class="result-label">Avg. Cost Per Click</span></div>
+    <div class="result-item"><span class="result-num">4.5%</span><span class="result-label">Click-Through Rate</span></div>
+    <div class="result-item"><span class="result-num">3.5–4×</span><span class="result-label">ROAS</span></div>
+    <div class="result-item"><span class="result-num">Above Avg.</span><span class="result-label">Engagement Ranking</span></div>
   </div>
 </section>
 
